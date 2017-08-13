@@ -10936,12 +10936,20 @@ $packages["honnef.co/go/js/dom"] = (function() {
 	$pkg.$init = $init;
 	return $pkg;
 })();
-$packages["main"] = (function() {
-	var $pkg = {}, $init, js, dom, funcType, canvasPost1Img1, canvasPost1Img2, main;
+$packages["github.com/chousemath/gopherjs/posts"] = (function() {
+	var $pkg = {}, $init, js, dom, funcType, canvasPost1Img1, canvasPost1Img2, LoadPosts, loadPost1;
 	js = $packages["github.com/gopherjs/gopherjs/js"];
 	dom = $packages["honnef.co/go/js/dom"];
 	funcType = $funcType([], [], false);
-	main = function() {
+	LoadPosts = function() {
+		var $ptr, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		$r = loadPost1(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$s = -1; return;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: LoadPosts }; } $f.$ptr = $ptr; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	$pkg.LoadPosts = LoadPosts;
+	loadPost1 = function() {
 		var $ptr, _r, _r$1, _r$2, _r$3, _r$4, _r$5, _r$6, _r$7, _r$8, _r$9, canvasPost1, canvasPost2, contextPost1, contextPost2, d, post1Img1, post1Img2, $s, $r;
 		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; _r$6 = $f._r$6; _r$7 = $f._r$7; _r$8 = $f._r$8; _r$9 = $f._r$9; canvasPost1 = $f.canvasPost1; canvasPost2 = $f.canvasPost2; contextPost1 = $f.contextPost1; contextPost2 = $f.contextPost2; d = $f.d; post1Img1 = $f.post1Img1; post1Img2 = $f.post1Img2; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		contextPost1 = [contextPost1];
@@ -10985,7 +10993,7 @@ $packages["main"] = (function() {
 			contextPost2[0].drawImage(post1Img2[0], 0, 0);
 		}; })(contextPost1, contextPost2, post1Img1, post1Img2), funcType));
 		$s = -1; return;
-		/* */ } return; } if ($f === undefined) { $f = { $blk: main }; } $f.$ptr = $ptr; $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f._r$6 = _r$6; $f._r$7 = _r$7; $f._r$8 = _r$8; $f._r$9 = _r$9; $f.canvasPost1 = canvasPost1; $f.canvasPost2 = canvasPost2; $f.contextPost1 = contextPost1; $f.contextPost2 = contextPost2; $f.d = d; $f.post1Img1 = post1Img1; $f.post1Img2 = post1Img2; $f.$s = $s; $f.$r = $r; return $f;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: loadPost1 }; } $f.$ptr = $ptr; $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f._r$6 = _r$6; $f._r$7 = _r$7; $f._r$8 = _r$8; $f._r$9 = _r$9; $f.canvasPost1 = canvasPost1; $f.canvasPost2 = canvasPost2; $f.contextPost1 = contextPost1; $f.contextPost2 = contextPost2; $f.d = d; $f.post1Img1 = post1Img1; $f.post1Img2 = post1Img2; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	$init = function() {
 		$pkg.$init = function() {};
@@ -10994,12 +11002,31 @@ $packages["main"] = (function() {
 		$r = dom.$init(); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		canvasPost1Img1 = "img/common/gopher-1.png";
 		canvasPost1Img2 = "img/common/gopher-2.png";
-		/* */ if ($pkg === $mainPkg) { $s = 3; continue; }
-		/* */ $s = 4; continue;
-		/* if ($pkg === $mainPkg) { */ case 3:
-			$r = main(); /* */ $s = 5; case 5: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
+	};
+	$pkg.$init = $init;
+	return $pkg;
+})();
+$packages["main"] = (function() {
+	var $pkg = {}, $init, posts, main;
+	posts = $packages["github.com/chousemath/gopherjs/posts"];
+	main = function() {
+		var $ptr, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		$r = posts.LoadPosts(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$s = -1; return;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: main }; } $f.$ptr = $ptr; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	$init = function() {
+		$pkg.$init = function() {};
+		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		$r = posts.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ if ($pkg === $mainPkg) { $s = 2; continue; }
+		/* */ $s = 3; continue;
+		/* if ($pkg === $mainPkg) { */ case 2:
+			$r = main(); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 			$mainFinished = true;
-		/* } */ case 4:
+		/* } */ case 3:
 		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
 	};
 	$pkg.$init = $init;

@@ -1,4 +1,4 @@
-package main
+package posts
 
 import "github.com/gopherjs/gopherjs/js"
 import "honnef.co/go/js/dom"
@@ -6,7 +6,7 @@ import "honnef.co/go/js/dom"
 var canvasPost1Img1 = "img/common/gopher-1.png"
 var canvasPost1Img2 = "img/common/gopher-2.png"
 
-func main() {
+func loadPost1() {
 	d := dom.GetWindow().Document()
 
 	d.GetElementByID("blog-title").SetInnerHTML("Joseph's Golang Blog")
