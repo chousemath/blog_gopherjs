@@ -42,7 +42,7 @@ func loadPost2() {
 	d.GetElementByID("post-2-description-1").SetInnerHTML("In an attempt to get a fullstack Golang project up and running, I decided to deploy a very simple Golang REST API to Heroku, and connect it to the GopherJS frontend. Below is the relevant server-side and frontend code.")
 
 	url := "https://gopherjs-api.herokuapp.com/weatherreports"
-	weatherReports := new(WeatherReports) // or &Foo{}
+	weatherReports := new(WeatherReports)
 	getJSON(url, weatherReports)
 
 	weatherReportsTable := d.GetElementByID("weather-reports")
@@ -78,7 +78,5 @@ func loadPost2() {
 		row.AppendChild(col)
 
 		weatherReportsTable.AppendChild(row)
-
-		println(weatherReport.Day)
 	}
 }
