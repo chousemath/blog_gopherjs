@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"honnef.co/go/js/dom"
 )
 
 func getJSON(url string, target interface{}) error {
@@ -35,47 +37,53 @@ func formatFloat(f float32) string {
 	return fmt.Sprintf("%.2f", f)
 }
 
+func appendColHeader(row dom.Element, colContent string) {
+	headerCol := d.CreateElement("TH")
+	headerCol.SetInnerHTML(colContent)
+	row.AppendChild(headerCol)
+}
+
+func appendCol(row dom.Element, colContent string) {
+	headerCol := d.CreateElement("TD")
+	headerCol.SetInnerHTML(colContent)
+	row.AppendChild(headerCol)
+}
+
 func loadPost2() {
 	// `d`, the reference to the DOM is declared in a previous post
-	d.GetElementByID("post-2-title").SetInnerHTML("Day 2: Connecting a REST API")
+	d.GetElementByID("post-2-title").SetInnerHTML("Day 2: Connecting a Golang REST API")
 	d.GetElementByID("post-2-attribution").SetInnerHTML("By Joseph Choi under <a class='post-category post-category-js'>Go</a> <a class='post-category post-category-js'>REST API</a> <a class='post-category post-category-js'>Heroku</a>")
 	d.GetElementByID("post-2-description-1").SetInnerHTML("In an attempt to get a fullstack Golang project up and running, I decided to deploy a very simple Golang REST API to Heroku, and connect it to the GopherJS frontend. Below is the relevant server-side and frontend code.")
+
+	weatherReportsHeader := d.GetElementByID("weather-reports-header")
+	headerLabels := []string{"Day", "TempLo", "TempHi", "Precip", "Humid", "Wind"}
+	headerRow := d.CreateElement("TR")
+	for _, label := range headerLabels {
+		appendColHeader(headerRow, label)
+	}
+
+	weatherReportsHeader.AppendChild(headerRow)
 
 	url := "https://gopherjs-api.herokuapp.com/weatherreports"
 	weatherReports := new(WeatherReports)
 	getJSON(url, weatherReports)
 
 	weatherReportsTable := d.GetElementByID("weather-reports")
-	row := d.CreateElement("TR")
-	col := d.CreateElement("TD")
-
 	for _, weatherReport := range weatherReports.Reports {
 		// create a new table row node
-		row = d.CreateElement("TR")
+		row := d.CreateElement("TR")
+		rowValues := []string{
+			weatherReport.Day,
+			formatFloat(weatherReport.TemperatureLow),
+			formatFloat(weatherReport.TemperatureHigh),
+			formatFloat(weatherReport.Precipitation),
+			formatFloat(weatherReport.Humidity),
+			formatFloat(weatherReport.Wind),
+		}
 
-		col = d.CreateElement("TD")
-		col.SetInnerHTML(weatherReport.Day)
-		row.AppendChild(col)
-
-		col = d.CreateElement("TD")
-		col.SetInnerHTML(formatFloat(weatherReport.TemperatureLow))
-		row.AppendChild(col)
-
-		col = d.CreateElement("TD")
-		col.SetInnerHTML(formatFloat(weatherReport.TemperatureHigh))
-		row.AppendChild(col)
-
-		col = d.CreateElement("TD")
-		col.SetInnerHTML(formatFloat(weatherReport.Precipitation))
-		row.AppendChild(col)
-
-		col = d.CreateElement("TD")
-		col.SetInnerHTML(formatFloat(weatherReport.Humidity))
-		row.AppendChild(col)
-
-		col = d.CreateElement("TD")
-		col.SetInnerHTML(formatFloat(weatherReport.Wind))
-		row.AppendChild(col)
+		for _, value := range rowValues {
+			appendCol(row, value)
+		}
 
 		weatherReportsTable.AppendChild(row)
 	}
