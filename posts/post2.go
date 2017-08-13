@@ -31,6 +31,10 @@ type WeatherReports struct {
 	Reports []WeatherReport `json:"reports,omitempty"`
 }
 
+func formatFloat(f float32) string {
+	return fmt.Sprintf("%.2f", f)
+}
+
 func loadPost2() {
 	// `d`, the reference to the DOM is declared in a previous post
 	d.GetElementByID("post-2-title").SetInnerHTML("Day 2: Connecting a REST API")
@@ -46,20 +50,6 @@ func loadPost2() {
 	col := d.CreateElement("TD")
 
 	for _, weatherReport := range weatherReports.Reports {
-		// <tr>
-		//     <td>1</td>
-		//     <td>Honda</td>
-		//     <td>Accord</td>
-		//     <td>2009</td>
-		// </tr>
-
-		// Day             string  `json:"day,omitempty"`
-		// TemperatureLow  float32 `json:"temperatureLow,omitempty"`
-		// TemperatureHigh float32 `json:"temperatureHigh,omitempty"`
-		// Precipitation   float32 `json:"precipitation,omitempty"`
-		// Humidity        float32 `json:"humidity,omitempty"`
-		// Wind            float32 `json:"wind,omitempty"`
-
 		// create a new table row node
 		row = d.CreateElement("TR")
 
@@ -68,23 +58,23 @@ func loadPost2() {
 		row.AppendChild(col)
 
 		col = d.CreateElement("TD")
-		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.TemperatureLow))
+		col.SetInnerHTML(formatFloat(weatherReport.TemperatureLow))
 		row.AppendChild(col)
 
 		col = d.CreateElement("TD")
-		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.TemperatureHigh))
+		col.SetInnerHTML(formatFloat(weatherReport.TemperatureHigh))
 		row.AppendChild(col)
 
 		col = d.CreateElement("TD")
-		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.Precipitation))
+		col.SetInnerHTML(formatFloat(weatherReport.Precipitation))
 		row.AppendChild(col)
 
 		col = d.CreateElement("TD")
-		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.Humidity))
+		col.SetInnerHTML(formatFloat(weatherReport.Humidity))
 		row.AppendChild(col)
 
 		col = d.CreateElement("TD")
-		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.Wind))
+		col.SetInnerHTML(formatFloat(weatherReport.Wind))
 		row.AppendChild(col)
 
 		weatherReportsTable.AppendChild(row)
