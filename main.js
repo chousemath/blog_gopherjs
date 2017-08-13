@@ -10937,11 +10937,17 @@ $packages["honnef.co/go/js/dom"] = (function() {
 	return $pkg;
 })();
 $packages["main"] = (function() {
-	var $pkg = {}, $init, dom, main;
+	var $pkg = {}, $init, js, dom, funcType, canvasPost1Img1, canvasPost1Img2, main;
+	js = $packages["github.com/gopherjs/gopherjs/js"];
 	dom = $packages["honnef.co/go/js/dom"];
+	funcType = $funcType([], [], false);
 	main = function() {
-		var $ptr, _r, _r$1, _r$2, _r$3, _r$4, _r$5, d, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; d = $f.d; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		var $ptr, _r, _r$1, _r$2, _r$3, _r$4, _r$5, _r$6, _r$7, _r$8, _r$9, canvasPost1, canvasPost2, contextPost1, contextPost2, d, post1Img1, post1Img2, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; _r$6 = $f._r$6; _r$7 = $f._r$7; _r$8 = $f._r$8; _r$9 = $f._r$9; canvasPost1 = $f.canvasPost1; canvasPost2 = $f.canvasPost2; contextPost1 = $f.contextPost1; contextPost2 = $f.contextPost2; d = $f.d; post1Img1 = $f.post1Img1; post1Img2 = $f.post1Img2; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		contextPost1 = [contextPost1];
+		contextPost2 = [contextPost2];
+		post1Img1 = [post1Img1];
+		post1Img2 = [post1Img2];
 		_r = dom.GetWindow().Document(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
 		d = _r;
 		_r$1 = d.GetElementByID("blog-title"); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
@@ -10954,19 +10960,46 @@ $packages["main"] = (function() {
 		$r = _r$4.SetInnerHTML("By Joseph Choi under <a class='post-category post-category-js'>Go</a>"); /* */ $s = 9; case 9: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		_r$5 = d.GetElementByID("post-1-description-1"); /* */ $s = 10; case 10: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
 		$r = _r$5.SetInnerHTML("Today was my first day with GopherJS. In order to drive myself to learn this new language, I am hoping to make short, Go-related posts on a regular basis. Wish me luck!"); /* */ $s = 11; case 11: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		_r$6 = d.GetElementByID("post-1-canvas-1"); /* */ $s = 12; case 12: if($c) { $c = false; _r$6 = _r$6.$blk(); } if (_r$6 && _r$6.$blk !== undefined) { break s; }
+		canvasPost1 = _r$6;
+		$r = canvasPost1.SetAttribute("style", "border: 3px solid #000000;"); /* */ $s = 13; case 13: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		_r$7 = canvasPost1.Underlying(); /* */ $s = 14; case 14: if($c) { $c = false; _r$7 = _r$7.$blk(); } if (_r$7 && _r$7.$blk !== undefined) { break s; }
+		contextPost1[0] = _r$7.getContext($externalize("2d", $String));
+		post1Img1[0] = new ($global.Image)();
+		post1Img1[0].src = $externalize(canvasPost1Img1, $String);
+		post1Img1[0].addEventListener($externalize("load", $String), $externalize((function(contextPost1, contextPost2, post1Img1, post1Img2) { return function() {
+			var $ptr;
+			console.log("Drawing image with GopherJS!");
+			contextPost1[0].drawImage(post1Img1[0], 0, 0);
+		}; })(contextPost1, contextPost2, post1Img1, post1Img2), funcType));
+		_r$8 = d.GetElementByID("post-1-canvas-2"); /* */ $s = 15; case 15: if($c) { $c = false; _r$8 = _r$8.$blk(); } if (_r$8 && _r$8.$blk !== undefined) { break s; }
+		canvasPost2 = _r$8;
+		$r = canvasPost2.SetAttribute("style", "border: 3px solid #0000ff;"); /* */ $s = 16; case 16: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		_r$9 = canvasPost2.Underlying(); /* */ $s = 17; case 17: if($c) { $c = false; _r$9 = _r$9.$blk(); } if (_r$9 && _r$9.$blk !== undefined) { break s; }
+		contextPost2[0] = _r$9.getContext($externalize("2d", $String));
+		post1Img2[0] = new ($global.Image)();
+		post1Img2[0].src = $externalize(canvasPost1Img2, $String);
+		post1Img2[0].addEventListener($externalize("load", $String), $externalize((function(contextPost1, contextPost2, post1Img1, post1Img2) { return function() {
+			var $ptr;
+			console.log("Drawing another image with GopherJS!");
+			contextPost2[0].drawImage(post1Img2[0], 0, 0);
+		}; })(contextPost1, contextPost2, post1Img1, post1Img2), funcType));
 		$s = -1; return;
-		/* */ } return; } if ($f === undefined) { $f = { $blk: main }; } $f.$ptr = $ptr; $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f.d = d; $f.$s = $s; $f.$r = $r; return $f;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: main }; } $f.$ptr = $ptr; $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f._r$6 = _r$6; $f._r$7 = _r$7; $f._r$8 = _r$8; $f._r$9 = _r$9; $f.canvasPost1 = canvasPost1; $f.canvasPost2 = canvasPost2; $f.contextPost1 = contextPost1; $f.contextPost2 = contextPost2; $f.d = d; $f.post1Img1 = post1Img1; $f.post1Img2 = post1Img2; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	$init = function() {
 		$pkg.$init = function() {};
 		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		$r = dom.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		/* */ if ($pkg === $mainPkg) { $s = 2; continue; }
-		/* */ $s = 3; continue;
-		/* if ($pkg === $mainPkg) { */ case 2:
-			$r = main(); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = js.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = dom.$init(); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		canvasPost1Img1 = "img/common/gopher-1.png";
+		canvasPost1Img2 = "img/common/gopher-2.png";
+		/* */ if ($pkg === $mainPkg) { $s = 3; continue; }
+		/* */ $s = 4; continue;
+		/* if ($pkg === $mainPkg) { */ case 3:
+			$r = main(); /* */ $s = 5; case 5: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 			$mainFinished = true;
-		/* } */ case 3:
+		/* } */ case 4:
 		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
 	};
 	$pkg.$init = $init;
