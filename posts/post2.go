@@ -53,7 +53,7 @@ func loadPost2() {
 	// `d`, the reference to the DOM is declared in a previous post
 	d.GetElementByID("post-2-title").SetInnerHTML("Day 2: Connecting a Golang REST API")
 	d.GetElementByID("post-2-attribution").SetInnerHTML("By Joseph Choi under <a class='post-category post-category-js'>Go</a> <a class='post-category post-category-js'>REST API</a> <a class='post-category post-category-js'>Heroku</a>")
-	d.GetElementByID("post-2-description-1").SetInnerHTML("In an attempt to get a fullstack Golang project up and running, I decided to deploy a very simple Golang REST API to Heroku, and connect it to the GopherJS frontend. Below is the relevant server-side and frontend code.")
+	d.GetElementByID("post-2-description-1").SetInnerHTML("In an attempt to get a fullstack Golang project up and running, I decided to deploy a very simple Golang REST API to Heroku, and connect it to the GopherJS frontend. The data for the table below has been acquired through a GET request to a <a href='https://github.com/chousemath/gopherjs-api'>Golang REST API running on Heroku</a>. The Go code on the frontend then parses that data, and loads it into the table.")
 
 	weatherReportsHeader := d.GetElementByID("weather-reports-header")
 	headerLabels := []string{"Day", "TempLo", "TempHi", "Precip", "Humid", "Wind"}

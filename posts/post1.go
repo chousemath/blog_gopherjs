@@ -14,7 +14,7 @@ func loadPost1() {
 
 	d.GetElementByID("post-1-title").SetInnerHTML("Day 1: Setting up GopherJS")
 	d.GetElementByID("post-1-attribution").SetInnerHTML("By Joseph Choi under <a class='post-category post-category-js'>Go</a>")
-	d.GetElementByID("post-1-description-1").SetInnerHTML("Today was my first day with GopherJS. In order to drive myself to learn this new language, I am hoping to make short, Go-related posts on a regular basis. Wish me luck!")
+	d.GetElementByID("post-1-description-1").SetInnerHTML("Today was my first day with GopherJS. In order to drive myself to learn this new language, I am hoping to make short, Go-related posts on a regular basis. Wish me luck! The images/canvases you see below were loaded in by Go code compiled to Javascript code.")
 	// fetch the canvas element
 	canvasPost1 := d.GetElementByID("post-1-canvas-1")
 	canvasPost1.SetAttribute("style", "border: 3px solid #000000;")
