@@ -2,6 +2,7 @@ package posts
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -40,7 +41,54 @@ func loadPost2() {
 	weatherReports := new(WeatherReports) // or &Foo{}
 	getJSON(url, weatherReports)
 
+	weatherReportsTable := d.GetElementByID("weather-reports")
+	row := d.CreateElement("TR")
+	col := d.CreateElement("TD")
+
 	for _, weatherReport := range weatherReports.Reports {
+		// <tr>
+		//     <td>1</td>
+		//     <td>Honda</td>
+		//     <td>Accord</td>
+		//     <td>2009</td>
+		// </tr>
+
+		// Day             string  `json:"day,omitempty"`
+		// TemperatureLow  float32 `json:"temperatureLow,omitempty"`
+		// TemperatureHigh float32 `json:"temperatureHigh,omitempty"`
+		// Precipitation   float32 `json:"precipitation,omitempty"`
+		// Humidity        float32 `json:"humidity,omitempty"`
+		// Wind            float32 `json:"wind,omitempty"`
+
+		// create a new table row node
+		row = d.CreateElement("TR")
+
+		col = d.CreateElement("TD")
+		col.SetInnerHTML(weatherReport.Day)
+		row.AppendChild(col)
+
+		col = d.CreateElement("TD")
+		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.TemperatureLow))
+		row.AppendChild(col)
+
+		col = d.CreateElement("TD")
+		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.TemperatureHigh))
+		row.AppendChild(col)
+
+		col = d.CreateElement("TD")
+		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.Precipitation))
+		row.AppendChild(col)
+
+		col = d.CreateElement("TD")
+		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.Humidity))
+		row.AppendChild(col)
+
+		col = d.CreateElement("TD")
+		col.SetInnerHTML(fmt.Sprintf("%.2f", weatherReport.Wind))
+		row.AppendChild(col)
+
+		weatherReportsTable.AppendChild(row)
+
 		println(weatherReport.Day)
 	}
 }
