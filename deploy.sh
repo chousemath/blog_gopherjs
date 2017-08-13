@@ -9,6 +9,8 @@ echo "Type your commit comment, followed by [ENTER]:"
 read comment
 # the -e command enables the backslash necessary for colored text
 echo -e "${GREEN}commit comment has been loaded${NC}"
+./compile.sh
+echo -e "${GREEN}Go code compiled to Javascript${NC}"
 # just a spacer
 echo -e "${LIGHTCYAN}............${NC}"
 git add .
