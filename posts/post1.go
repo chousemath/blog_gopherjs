@@ -10,7 +10,7 @@ var d = dom.GetWindow().Document()
 
 func loadPost1() {
 	d.GetElementByID("blog-title").SetInnerHTML("Joseph's Golang Blog")
-	d.GetElementByID("blog-subtitle").SetInnerHTML("Learning the Ways of the Gopher with Javascript!")
+	d.GetElementByID("blog-subtitle").SetInnerHTML("Learning the Ways of the Gopher with Javascript")
 
 	d.GetElementByID("post-1-title").SetInnerHTML("Day 1: Setting up GopherJS")
 	d.GetElementByID("post-1-attribution").SetInnerHTML("By Joseph Choi under <a class='post-category post-category-js'>Go</a>")
