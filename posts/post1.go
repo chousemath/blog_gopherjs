@@ -6,9 +6,9 @@ import "honnef.co/go/js/dom"
 var canvasPost1Img1 = "img/common/gopher-1.png"
 var canvasPost1Img2 = "img/common/gopher-2.png"
 
-func loadPost1() {
-	d := dom.GetWindow().Document()
+var d = dom.GetWindow().Document()
 
+func loadPost1() {
 	d.GetElementByID("blog-title").SetInnerHTML("Joseph's Golang Blog")
 	d.GetElementByID("blog-subtitle").SetInnerHTML("Learning the Ways of the Gopher with Javascript!")
 
