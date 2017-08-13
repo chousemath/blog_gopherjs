@@ -24,6 +24,5 @@ func loadPost2() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	println(body)
 }
