@@ -17,11 +17,17 @@ func getJSON(url string, target interface{}) error {
 // WeatherReport represents a typical weather report
 type WeatherReport struct {
 	ID              int32   `json:"id,omitempty"`
+	Day             string  `json:"day,omitempty"`
 	TemperatureLow  float32 `json:"temperatureLow,omitempty"`
 	TemperatureHigh float32 `json:"temperatureHigh,omitempty"`
 	Precipitation   float32 `json:"precipitation,omitempty"`
 	Humidity        float32 `json:"humidity,omitempty"`
 	Wind            float32 `json:"wind,omitempty"`
+}
+
+// WeatherReports represents a typical weather report
+type WeatherReports struct {
+	Reports []WeatherReport `json:"reports,omitempty"`
 }
 
 func loadPost2() {
@@ -30,8 +36,11 @@ func loadPost2() {
 	d.GetElementByID("post-2-attribution").SetInnerHTML("By Joseph Choi under <a class='post-category post-category-js'>Go</a> <a class='post-category post-category-js'>REST API</a> <a class='post-category post-category-js'>Heroku</a>")
 	d.GetElementByID("post-2-description-1").SetInnerHTML("In an attempt to get a fullstack Golang project up and running, I decided to deploy a very simple Golang REST API to Heroku, and connect it to the GopherJS frontend. Below is the relevant server-side and frontend code.")
 
-	url := "https://gopherjs-api.herokuapp.com/weatherreport"
-	weatherReport := new(WeatherReport) // or &Foo{}
-	getJSON(url, weatherReport)
-	println(weatherReport.TemperatureLow)
+	url := "https://gopherjs-api.herokuapp.com/weatherreports"
+	weatherReports := new(WeatherReports) // or &Foo{}
+	getJSON(url, weatherReports)
+
+	for _, weatherReport := range weatherReports.Reports {
+		println(weatherReport.Day)
+	}
 }
